@@ -1,0 +1,52 @@
+<div class="grid">
+  <div
+    class="col-12 md:col-3 sm:col-2 card"
+    id="card"
+    *ngFor="let card of cards; let i = index"
+  >
+    <p-card *ngIf="!card.blocked; else lockedContent">
+      <h2>{{ card.title }}</h2>
+      <!-- En tu template -->
+      <p [innerHTML]="card.content"></p>
+    </p-card>
+
+    <ng-template #lockedContent>
+      <p-card>
+        <ng-template pTemplate="header">
+          <img [src]="card.img.url" [alt]="card.img.alt" class="img" />
+        </ng-template>
+        <ng-template pTemplate="content">
+          <div class="flex flex-column">
+            <div class="flex align-items-center justify-content-center">
+              <h3>{{ card.remainingTime }}</h3>
+            </div>
+            <div class="flex align-items-center justify-content-center">
+              <p *ngIf="card.day > 0 && card.hours > 0">
+                ¡Todavia quedan {{ card.day }} dias para descubrir el regalitoo!
+              </p>
+
+              <p *ngIf="card.day === 0 && card.hours > 0">
+                ¡Ya solo quedan {{ card.hours }} horitass para descubrir el
+                regalitoo!
+              </p>
+
+              <p *ngIf="card.hours <= 0">
+                ¡Ya puedes abrir el regalo, Te amooo!
+              </p>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <div class="flex flex-column">
+            <p-button
+              *ngIf="card.blocked"
+              label="Abrir regalitoo"
+              [style]="{ width: '100%' }"
+              (click)="unlockDay(i)"
+            ></p-button>
+          </div>
+        </ng-template>
+      </p-card>
+    </ng-template>
+  </div>
+</div>

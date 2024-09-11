@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button'; // Importa el módulo de botón d
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ButtonModule,
     ToastModule,
     InputTextModule,
+    MessagesModule,
   ],
   exports: [
     MenubarModule,
@@ -23,6 +25,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ButtonModule,
     ToastModule,
     InputTextModule,
+    MessagesModule,
   ],
   providers: [MessageService],
 })

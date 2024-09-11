@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'components-roulette',
@@ -28,6 +29,9 @@ export class RouletteComponent {
   private insideRadius!: number;
 
   public newOption: string = ''; // Nueva opción que se añade a través del input
+
+  constructor(private messageService: MessageService) {}
+
 
   ngOnInit(): void {
     this.resizeCanvas();
@@ -211,11 +215,21 @@ export class RouletteComponent {
     }
   }
 
+  addSingle(msg: string, detail: string) {
+    this.messageService.add({
+      severity: 'info',
+      summary: msg,
+      detail: detail,
+      life: 3000
+    });
+  }
+
   stopRotateWheel() {
     const degrees = (this.startAngle * 180) / Math.PI + 90;
     const arcd = (this.arc * 180) / Math.PI;
     const index = Math.floor((360 - (degrees % 360)) / arcd);
-    alert(`La opción seleccionada es: ${this.options[index]}`);
+    this.addSingle('El reto es..', this.options[index]);
+    //alert(`La opción seleccionada es: ${this.options[index]}`);
   }
 
   /**

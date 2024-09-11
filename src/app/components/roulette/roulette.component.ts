@@ -10,10 +10,7 @@ export class RouletteComponent {
   @ViewChild('canvas', { static: true }) canvas!: ElementRef<HTMLCanvasElement>;
   //Este será el contexto 2D del canvas que usaremos para dibujar la ruleta.
   private ctx!: CanvasRenderingContext2D;
-  public options = [
-    'Besitos ahi abajo..',
-
-  ];
+  public options = ['Besitos ahi abajo..'];
   // El ángulo inicial desde el que comenzamos a dibujar la primera sección de la ruleta.
   private startAngle = 0;
   //Calcula el ángulo que cubre cada sección de la ruleta dividiendo el círculo entre el número de opciones. Esto se calcula en radianes (2π es un círculo completo).
@@ -67,7 +64,10 @@ export class RouletteComponent {
 
   generateRandomColor(): string {
     // Genera un número aleatorio entre 0 y 255 y lo convierte a hexadecimal con dos dígitos.
-    const getRandomHex = () => Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+    const getRandomHex = () =>
+      Math.floor(Math.random() * 256)
+        .toString(16)
+        .padStart(2, '0');
 
     // Combina los valores generados para rojo, verde y azul.
     const red = getRandomHex();
@@ -116,8 +116,10 @@ export class RouletteComponent {
       this.ctx.fillStyle = 'black';
 
       // Calcula la posición del texto
-      const textX = canvas.width / 2 + Math.cos(angle + this.arc / 2) * (this.textRadius);
-      const textY = canvas.height / 2 + Math.sin(angle + this.arc / 2) * (this.textRadius);
+      const textX =
+        canvas.width / 2 + Math.cos(angle + this.arc / 2) * this.textRadius;
+      const textY =
+        canvas.height / 2 + Math.sin(angle + this.arc / 2) * this.textRadius;
 
       // Mueve el contexto al centro de la sección
       this.ctx.translate(textX, textY);
@@ -128,7 +130,10 @@ export class RouletteComponent {
 
       // Ajusta el tamaño del texto para que quepa dentro del segmento
       const maxTextWidth = this.arc * this.textRadius * 2; // Ancho máximo del texto en el segmento
-      const fontSize = Math.min(this.canvasSize / 30, maxTextWidth / this.options[i].length * 1.5); // Tamaño máximo del texto
+      const fontSize = Math.min(
+        this.canvasSize / 30,
+        (maxTextWidth / this.options[i].length) * 1.5
+      ); // Tamaño máximo del texto
 
       this.ctx.font = `bold ${fontSize}px Arial`;
       this.ctx.textAlign = 'center'; // Centra el texto horizontalmente

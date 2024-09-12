@@ -46,4 +46,5 @@ src/environments/
 src/environments/*
 
 .env
+setEnv.js
 

@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { environment } from '../environments/environments';
+import { environment } from '../environments/environments.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { PrimeModule } from './prime/prime.module';
 

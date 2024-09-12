@@ -7,6 +7,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessagesModule } from 'primeng/messages';
+import { ImageModule } from 'primeng/image';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,7 @@ import { MessagesModule } from 'primeng/messages';
     ToastModule,
     InputTextModule,
     MessagesModule,
+    ImageModule,
   ],
   exports: [
     MenubarModule,
@@ -26,6 +28,7 @@ import { MessagesModule } from 'primeng/messages';
     ToastModule,
     InputTextModule,
     MessagesModule,
+    ImageModule,
   ],
   providers: [MessageService],
 })

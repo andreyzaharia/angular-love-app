@@ -24,5 +24,16 @@ export class LayoutDashboardComponent {
         },
       ],
     },
+    {
+      label: 'Viajesito',
+      icon: 'pi pi-briefcase',
+      items: [
+        {
+          label: 'Canarias',
+          icon: 'pi pi-images',
+          routerLink: '/travels'
+        },
+      ],
+    },
   ];
 }

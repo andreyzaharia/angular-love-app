@@ -1,0 +1,7 @@
+.rounded-top-image {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  /* Puedes agregar más estilos si es necesario */
+}

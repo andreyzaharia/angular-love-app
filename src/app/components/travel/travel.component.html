@@ -1,0 +1,18 @@
+<div class="grid m-2">
+  <div
+    class="col-12 md:col-6 lg:col-3"
+    *ngFor="let image of imagenes; let i = index"
+  >
+    <p-card header="{{ image.nombre }}" subheader="{{image.km}}">
+      <ng-template pTemplate="header">
+        <img [src]="image.url" [alt]="image.nombre" class="rounded-top-image" />
+      </ng-template>
+      <p [innerHTML]="image.description"></p>
+    </p-card>
+  </div>
+</div>
+
+<!-- Aqui hacer un message fijo o un panel -->
+<ng-template #noImages>
+  <p>No hay imágenes disponibles.</p>
+</ng-template>

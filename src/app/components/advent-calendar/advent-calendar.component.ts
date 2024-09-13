@@ -24,7 +24,7 @@ export class AdventCalendarComponent implements OnInit {
 
   initDays() {
     // Crear la fecha 14 de septiembre (año 2024 como ejemplo)
-    let fecha = moment('2024-09-09', 'YYYY-MM-DD');
+    let fecha = moment('2024-09-14', 'YYYY-MM-DD');
 
     for (let i = 0; i < 8; i++) {
       // Sumar 'i' días a la fecha de inicio para obtener la fecha correspondiente
